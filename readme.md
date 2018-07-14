@@ -1,1 +1,1 @@
-[![Coverage Status](https://coveralls.io/repos/github/teradactol/authcard/badge.svg?branch=master)](https://coveralls.io/github/teradactol/authcard?branch=master)
+[![Build Status](https://travis-ci.org/teradactol/authcard.svg?branch=master)](https://travis-ci.org/teradactol/authcard) [![Coverage Status](https://coveralls.io/repos/github/teradactol/authcard/badge.svg?branch=master)](https://coveralls.io/github/teradactol/authcard?branch=master)
