@@ -5,3 +5,7 @@ node_js:
   - "6"
   - "5"
   - "4"
+before_install:
+  - npm install -g nyc
+script:
+  - nyc npm test && nyc report --reporter=text-lcov | coveralls

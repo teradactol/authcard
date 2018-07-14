@@ -1,0 +1,1 @@
+[![Coverage Status](https://coveralls.io/repos/github/teradactol/authcard/badge.svg?branch=master)](https://coveralls.io/github/teradactol/authcard?branch=master)
