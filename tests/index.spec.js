@@ -1,16 +1,14 @@
-'use strict'
+var authcard = require('../index')
+var expect = require('chai').expect
 
-const authcard = require('../index')
-const expect = require('chai').expect
-
-describe('Authcard', () => {
-    describe('"passhash"', () => {
-      it('should export a function', () => {
+describe('Authcard', function(){
+    describe('"passhash"', function(){
+      it('should export a function', function(){
         expect(authcard.passhash).to.be.a('function')
       })
     })
-    describe('"encryptutils"', () => {
-        it('should export an object', () => {
+    describe('"encryptutils"', function(){
+        it('should export an object', function(){
           expect(authcard.encryptutils).to.be.an('object')
         })
     })    
