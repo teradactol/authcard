@@ -54,13 +54,13 @@ describe('Encryptutils', function(){
                 expect(encryptutils.bcrypt.compareText).to.be.a('function')
             });
             it('Generated hash should match source text when compared', function(){
-                expect().to.not.equal()
+                expect("").to.not.equal()
             });
             it('Generated hash shouldn\'t match non source text when compared', function(){
-                expect().to.not.equal()
+                expect("").to.not.equal()
             });
             it('Should export a function that resolves to an object with a match property that is a boolean', function(){
-                expect().to.not.equal()
+                expect("").to.not.equal()
             });
         });
     })
