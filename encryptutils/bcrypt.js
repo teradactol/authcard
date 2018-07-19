@@ -8,7 +8,7 @@ gut.encryptText = function(_opts){
     return new Promise(function(resolve,reject){
         var opts = _opts || {};
         
-        var saltRounds = opts["saltRounds"];
+        var saltRounds = opts["saltRounds"] || 10; //Default to 10 saltRounds
         var text = opts["text"];
 
         bcrypt.hash(text,saltRounds,function(err,hash){
