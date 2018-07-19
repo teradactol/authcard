@@ -9,6 +9,8 @@ var algorithm = 'aes-256-ctr';
 var delim = ":";
 var req_pass_length = 32;
 
+gut.req_pass_length = req_pass_length;
+
 gut.encryptText = function(_opts){
     return new Promise(function(resolve,reject){
         var opts = _opts || {};
@@ -20,14 +22,14 @@ gut.encryptText = function(_opts){
         if(pass.length < req_pass_length){
             return reject({
                 type:"pass_too_long",
-                msg:"pass too short (should be 32 characters)"
+                msg:"pass too short (should be "+req_pass_length+" characters)"
             })
         }
 
         if(pass.length > req_pass_length){
             return reject({
                 type:"pass_too_long",
-                msg:"pass too long (should be 32 characters)"
+                msg:"pass too long (should be "+req_pass_length+" characters)"
             })
         }
 
@@ -150,6 +152,10 @@ gut.decryptObj = function(_opts){
                         })
                         .then(function(out){
                             key_cb(null,out["text"]);
+                        })
+                        //When decrypting objects, ignore properties that fail to be decrypted
+                        .catch(function(out){
+                            key_cb();
                         });
                 },
                 val:function(val_cb){
@@ -160,6 +166,10 @@ gut.decryptObj = function(_opts){
                         })
                         .then(function(out){
                             val_cb(null,out["text"]);
+                        })
+                        //When decrypting objects, ignore properties that fail to be decrypted
+                        .catch(function(out){
+                            val_cb();
                         });
                 }
             },function(err,results){
