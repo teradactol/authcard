@@ -6,10 +6,11 @@ var gut = function (_opts) {
         var opts = _opts || {};
 
         var card = opts["card"];
+        var fingerprint = opts["fingerprint"];
         var jwt_pass = opts["jwt_pass"];
         var ctr_pass = opts["ctr_pass"];
 
-        jwt.verify(card,jwt_pass, function(err, decoded) {
+        jwt.verify(card,jwt_pass+"_"+fingerprint, function(err, decoded) {
             if(err){
                 return reject(err)
             }

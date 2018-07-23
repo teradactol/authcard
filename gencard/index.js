@@ -6,11 +6,12 @@ var genToken = function (_opts) {
         var opts = _opts || {};
         var data = opts["data"];
 
-        //TODO Pass jwt_pass through key-derivation algortithm e.g PBKDF2 (Based on https://github.com/auth0/node-jsonwebtoken/issues/208#issuecomment-231861138)
+        //TODO Pass jwt_pass and fingerprint through key-derivation algortithm e.g PBKDF2 (Based on https://github.com/auth0/node-jsonwebtoken/issues/208#issuecomment-231861138)
+        var fingerprint = opts["fingerprint"];
         var jwt_pass = opts["jwt_pass"];
         var jwt_opts = opts["jwt_opts"];
 
-        jwt.sign(data,jwt_pass,jwt_opts,function(err,token){
+        jwt.sign(data,jwt_pass+"_"+fingerprint,jwt_opts,function(err,token){
             resolve({
                 token:token
             });
