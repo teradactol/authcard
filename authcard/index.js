@@ -10,7 +10,9 @@ var gut = function (_opts) {
         var jwt_pass = opts["jwt_pass"];
         var ctr_pass = opts["ctr_pass"];
 
-        jwt.verify(card,jwt_pass+"_"+fingerprint, function(err, decoded) {
+        var signature = Buffer.from(jwt_pass+"_"+fingerprint,"base64");
+
+        jwt.verify(card,signature, function(err, decoded) {
             if(err){
                 return reject(err)
             }

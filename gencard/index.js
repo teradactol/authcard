@@ -11,7 +11,9 @@ var genToken = function (_opts) {
         var jwt_pass = opts["jwt_pass"];
         var jwt_opts = opts["jwt_opts"];
 
-        jwt.sign(data,jwt_pass+"_"+fingerprint,jwt_opts,function(err,token){
+        var signature = Buffer.from(jwt_pass+"_"+fingerprint,"base64");
+
+        jwt.sign(data,signature,jwt_opts,function(err,token){
             resolve({
                 token:token
             });
