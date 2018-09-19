@@ -7,13 +7,11 @@ var genToken = function (_opts) {
         var data = opts["data"];
 
         //TODO Pass jwt_pass and fingerprint through key-derivation algortithm e.g PBKDF2 (Based on https://github.com/auth0/node-jsonwebtoken/issues/208#issuecomment-231861138)
-        var fingerprint = opts["fingerprint"];
+        var fingerprint = opts["fingerprint"];        
         var jwt_pass = opts["jwt_pass"];
         var jwt_opts = opts["jwt_opts"];
 
-        var signature = Buffer.from(jwt_pass+"_"+fingerprint,"base64");
-
-        jwt.sign(data,signature,jwt_opts,function(err,token){
+        jwt.sign(data,jwt_pass+"_"+fingerprint,jwt_opts,function(err,token){
             resolve({
                 token:token
             });
@@ -30,6 +28,7 @@ var gut = function (_opts) {
         var jwt_pass = opts["jwt_pass"];
         var ctr_pass = opts["ctr_pass"];
         var jwt_opts = opts["jwt_opts"];
+        var fingerprint = opts["fingerprint"];
 
         var ctr_pass_length = ctr_pass.length;
 
@@ -63,7 +62,8 @@ var gut = function (_opts) {
                     genToken({
                         data:hash,
                         jwt_pass:jwt_pass,
-                        jwt_opts:jwt_opts
+                        jwt_opts:jwt_opts,
+                        fingerprint:fingerprint
                     }).then(function(out){
                         resolve({
                             card:out["token"]
