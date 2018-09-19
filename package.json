@@ -1,6 +1,6 @@
 {
   "name": "@teradactol/authcard",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Company Nodejs Auth Library",
   "main": "index.js",
   "scripts": {
