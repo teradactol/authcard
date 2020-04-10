@@ -2,7 +2,7 @@
  * Created by Bishaka on 21/04/2017.
  */
 var gut = {};
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 
 gut.encryptText = function(_opts){
     return new Promise(function(resolve,reject){
