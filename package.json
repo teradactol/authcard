@@ -10,7 +10,7 @@
   "author": "Bishaka Samuel <sbishaka@gmail.com> (https://twitter.com/sbishaka)",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "bcrypt": "^2.0.1",
     "jsonwebtoken": "^8.3.0"
   },
